@@ -66,6 +66,98 @@ fun main() {
 
 Задействуется  2 варианта разного решения на разных ЯП для лучшей практики
 
+# Напишите рекурсивную функцию calculatePower, которая вычисляет степень числа. Функция calculatePower должна принимать два аргумента: число base и целое число exponent. Она должна возвращать результат возведения числа base в степень exponent.
+
+Входные данные
+
+Число base, которое может быть целым или с плавающей точкой.
+
+Целое число exponent, которое может быть положительным, отрицательным или равным нулю.
+
+Выходные данные
+
+Число, представляющее результат возведения числа base в степень exponent с точностью 2 знака.
+
+## Python
+```
+inp = input().split()
+base, exponent = float(inp[0]), int(inp[1])
+
+def calculatePower(base, exponent):
+    if exponent > 0:
+        return base * calculatePower(base, exponent-1)
+    elif exponent == 0:
+        return 1.0
+    else:
+        return calculatePower(base, exponent+1) / base
+
+print("{:.2f}".format(calculatePower(base, exponent)))
+```
+
+## Java
+```
+import java.util.Scanner;
+
+class Alg {
+
+    public static double calculatePower(double base, int exponent){
+        if(exponent > 0)
+            return base * calculatePower(base, exponent-1);
+        else if(exponent == 0)
+            return 1.0;
+        else 
+            return calculatePower(base, exponent+1) / base;
+    }
+
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        double base = sc.nextDouble();
+        int exponent = sc.nextInt();
+        System.out.printf("%.2f", calculatePower(base, exponent));
+    }
+}
+```
+
+## Kotlin
+```
+import java.util.Scanner
+
+fun calculatePower(base: Double, exponent: Int): Double {
+    if(exponent > 0)
+        return base * calculatePower(base, exponent - 1)
+    else if(exponent == 0)
+        return 1.0
+    else
+        return calculatePower(base, exponent + 1) / base
+}
+
+fun main(){
+    val scanner = Scanner(System.`in`)
+    var base = scanner.nextDouble()
+    var exponent = scanner.nextInt()
+    
+    println("%.2f".format(calculatePower(base, exponent)))
+    
+}
+```
+
+# Шаблон
+## Python
+```
+
+```
+
+## Java
+```
+
+```
+
+## Kotlin
+```
+
+```
+
+
 
 
 
